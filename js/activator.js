@@ -18,19 +18,31 @@ jQuery(document).ready(function () {
             success: function (data) {
                 console.log(data);
                 if(data.Status == 'Already activated - Same Computer ID') {
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Modal show
+                    |--------------------------------------------------------------------------
+                    */
                     jQuery('.activation_code').modal('show');
 
                     /*
-                     |--------------------------------------------------------------------------
-                     | Disable Modal Backdrop
-                     |--------------------------------------------------------------------------
-                     */
+                    |--------------------------------------------------------------------------
+                    | Add response status to the modal header
+                    |--------------------------------------------------------------------------
+                    */
                     jQuery('.modal-title').text(data.Status);
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Add response activation code to the modal body
+                    |--------------------------------------------------------------------------
+                    */
                     jQuery('.modal-body').text(data.ActivatedLicenseCode);
 
                 } else if (data.Status == 'Error : Already activated - Different Computer ID') {
                     jQuery('.activation_code').modal('show');
-                    
+
                     jQuery('.modal-title').text('ERROR:');
                     jQuery('.modal-body').text(data.Status);
                 } else {
