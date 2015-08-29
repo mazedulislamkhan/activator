@@ -41,14 +41,30 @@ jQuery(document).ready(function () {
                     jQuery('.modal-body').text(data.ActivatedLicenseCode);
 
                 } else if (data.Status == 'Error : Already activated - Different Computer ID') {
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Modal show
+                    |--------------------------------------------------------------------------
+                    */
                     jQuery('.activation_code').modal('show');
 
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Add ERROR string to the modal header
+                    |--------------------------------------------------------------------------
+                    */
                     jQuery('.modal-title').text('ERROR:');
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Add response status to the modal body
+                     |--------------------------------------------------------------------------
+                     */
                     jQuery('.modal-body').text(data.Status);
                 } else {
                     console.log(data);
                 }
-                //jQuery('.modal-body').html(data.ActivatedLicenseCode);
             }
         });
         return false;
