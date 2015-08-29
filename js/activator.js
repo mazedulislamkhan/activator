@@ -9,14 +9,25 @@ jQuery(document).ready(function () {
             url: 'http://ec2-52-8-255-156.us-west-1.compute.amazonaws.com/licenseapi/api/License/Activate',
             data: jQuery(this).serialize(),
             method: 'PUT',
+
+            /*
+             |--------------------------------------------------------------------------
+             | Show pre-loader
+             |--------------------------------------------------------------------------
+             */
             beforeSend: function () {
                 jQuery('#pre-loader').show();
             },
+
+            /*
+             |--------------------------------------------------------------------------
+             | Hide pre-loader
+             |--------------------------------------------------------------------------
+             */
             complete: function () {
                 jQuery('#pre-loader').hide();
             },
             success: function (data) {
-                console.log(data);
                 if(data.Status == 'Already activated - Same Computer ID') {
 
                     /*
@@ -63,7 +74,27 @@ jQuery(document).ready(function () {
                      */
                     jQuery('.modal-body').text(data.Status);
                 } else {
-                    console.log(data);
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Modal show
+                    |--------------------------------------------------------------------------
+                    */
+                    jQuery('.activation_code').modal('show');
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Add response status to the modal header
+                    |--------------------------------------------------------------------------
+                    */
+                    jQuery('.modal-title').text(data.Status);
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Add response activation code to the modal body
+                    |--------------------------------------------------------------------------
+                    */
+                    jQuery('.modal-body').text(data.ActivatedLicenseCode);
                 }
             }
         });
