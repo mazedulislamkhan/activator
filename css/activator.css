@@ -7,7 +7,8 @@
     display          : none;
     position         : relative;
     height           : 4px;
-    width            : 50%;
+    width            : 65%;
+    float            : right;
     background-color : #acece6;
     border-radius    : 2px;
     margin           : 0.5rem 0 1rem 0;
@@ -157,9 +158,98 @@
 
 /*
 |--------------------------------------------------------------------------
-| Activator Modal
+| Form
 |--------------------------------------------------------------------------
 */
-.activation_code .modal-body {
-    word-wrap: break-word;
+#activator {
+    display : block;
+    margin  : auto;
+}
+
+.SerialKey-Group,
+.ActivateMachineCode-Group {
+    width : 100%;
+}
+
+.SerialKey-Group {
+    margin-bottom : 15px;
+}
+
+.ActivateMachineCode-Group {
+    margin-bottom : 15px;
+}
+
+label[for="SerialKey"],
+label[for="ActivateMachineCode"] {
+    width              : 22%;
+    background-color   : #a0ce4e;
+    color              : white;
+    border-radius      : 2px;
+    border-color       : white;
+    padding            : 13px 29px;
+    font-size          : 14px;
+    -webkit-appearance : none;
+    font-family        : 'PT Sans', Arial, Helvetica, sans-serif;
+    font-weight        : 700;
+    border-width       : 0;
+    border-style       : solid;
+    display            : inline-block;
+    position           : relative;
+    outline            : 0;
+    zoom               : 1;
+    border             : 1px solid rgba(0, 0, 0, 0);
+    text-align         : center;
+    text-transform     : uppercase;
+    cursor             : pointer;
+    -webkit-box-sizing : content-box;
+    -moz-box-sizing    : content-box;
+    box-sizing         : content-box;
+    vertical-align     : middle;
+}
+
+input[name="SerialKey"],
+input[name="ActivateMachineCode"] {
+    width        : 65% !important;
+    padding      : 15px !important;
+    margin-right : 0 !important;
+    display      : inline-block;
+    float        : right;
+    outline      : none;
+}
+
+.Google-reCAPTCHA {
+    width : 28%;
+    float : left;
+}
+
+.submit {
+    width   : 65%;
+    float   : right;
+    display : inline-block;
+}
+
+.submit button {
+    width              : 100%;
+    display            : block;
+    margin             : auto;
+    background-color   : #a0ce4e;
+    color              : white;
+    border-radius      : 2px;
+    border-color       : white;
+    padding            : 13px 29px;
+    font-size          : 14px;
+    -webkit-appearance : none;
+    font-family        : 'PT Sans', Arial, Helvetica, sans-serif;
+    font-weight        : 700;
+    border-width       : 0;
+    border-style       : solid;
+    display            : inline-block;
+    position           : relative;
+    outline            : 0;
+    zoom               : 1;
+    border             : 1px solid rgba(0, 0, 0, 0);
+    text-align         : center;
+    text-transform     : uppercase;
+    cursor             : pointer;
+    vertical-align     : middle;
 }
