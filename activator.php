@@ -2,9 +2,9 @@
 
 /*
 Plugin Name: Activator
-Plugin URI: https://github.com/mazedulislamkhan
+Plugin URI: https://github.com/mazedulislamkhan/activator
 Description: A simple WordPress plugin which generate activation key through Bluelance API. Some of this plugin style based on specific to Avada theme.
-Version: 1.0
+Version: 1.1
 Author: Md Mazedul Islam Khan
 Author URI: https://github.com/mazedulislamkhan
 License: GPL2
@@ -12,13 +12,52 @@ License: GPL2
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
+// reCAPTCHA
+$siteKey = '6Lf5EAwTAAAAAOb1bLUPAfi5Mp7hqlg3AF7kr9Wy';
+$lang    = 'en';
+
 /*
 |--------------------------------------------------------------------------
 | Activator Shortcode
 |--------------------------------------------------------------------------
 */
 function activator_shortcode() {
-	return "<form method='PUT' id='activator'><div id='comment-input'><input type='text' name='SerialKey' id='SerialKey' placeholder='Serial Key' required><input type='text' name='ActivateMachineCode' id='ActivateMachineCode' placeholder='Computer ID' required></div><button type='submit' class='fusion-button fusion-button-default fusion-button-large fusion-button-round fusion-button-flat'>Activate</button><div id='pre-loader'><div class='indeterminate'></div></div></form>";
+	global $siteKey;
+	global $lang;
+
+	$form = <<<FORM
+<form method="POST" id="activator">
+	<fieldset>
+		<div class="SerialKey-Group">
+			<label for="SerialKey">Serial Key</label>
+			<input type="text" id="SerialKey" name="SerialKey" placeholder="Enter Serial Key" required>
+		</div>
+
+		<div class="ActivateMachineCode-Group">
+			<label for="ActivateMachineCode">Computer ID</label>
+			<input type="text" id="ActivateMachineCode" name="ActivateMachineCode" placeholder="Enter Computer ID" required>
+		</div>
+
+		<div class="Google-reCAPTCHA">
+			<div class="g-recaptcha" data-sitekey="$siteKey"></div>
+			<script src="https://www.google.com/recaptcha/api.js?hl=$lang"></script>
+		</div>
+
+		<div class="submit">
+			<button type="submit">Activate</button>
+		</div>
+
+		<div id="pre-loader">
+			<div class="indeterminate"></div>
+		</div>
+	</fieldset>
+</form>
+<div class="activation-code">
+	
+</div>
+FORM;
+
+	return $form;
 }
 
 add_shortcode( 'activator', 'activator_shortcode' );
