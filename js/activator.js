@@ -80,10 +80,19 @@ jQuery(document).ready(function () {
 
                 /*
                  |--------------------------------------------------------------------------
+                 | reCAPTCHA failure
+                 |--------------------------------------------------------------------------
+                 */
+                if (data.Status == 'failed') {
+                    jQuery('.Google-reCAPTCHA .verify-recaptcha').show();
+                }
+
+                /*
+                 |--------------------------------------------------------------------------
                  | Already activated - Same computer ID
                  |--------------------------------------------------------------------------
                  */
-                if (data.Status == 'Already activated - Same Computer ID') {
+                else if (data.Status == 'Already activated - Same Computer ID') {
                     jQuery('.activation-code').show();
                     jQuery('.activation-code .status').text('Already activated: Copy the below activation code and activate your copy of LT Auditor+');
                     jQuery('.activation-code .activated-license-code pre').html(data.ActivatedLicenseCode);
@@ -91,19 +100,10 @@ jQuery(document).ready(function () {
 
                 /*
                  |--------------------------------------------------------------------------
-                 | reCAPTCHA failure
-                 |--------------------------------------------------------------------------
-                 */
-                else if (data.Status == 'failed') {
-                    jQuery('.Google-reCAPTCHA .verify-recaptcha').show();
-                }
-
-                /*
-                 |--------------------------------------------------------------------------
                  | Already activated - Different Computer ID
                  |--------------------------------------------------------------------------
                  */
-                else if ('Error : Already activated - Different Computer ID') {
+                else if (data.Status == 'Error : Already activated - Different Computer ID') {
                     jQuery('.activation-code').show();
                     jQuery('.activation-code .status').text('License cannot be activated!');
                     jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Already activated using different computer ID.</h3><h3 class="different-computer-id">Please contact Blue Lance to get another serial key.</h3>');
