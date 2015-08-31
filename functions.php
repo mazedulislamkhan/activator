@@ -5,8 +5,9 @@
 | Google reCAPTCHA
 |--------------------------------------------------------------------------
 */
-//require( plugin_dir_path( __FILE__ ) . 'vendor/autoload.php' );
+
 require 'vendor/autoload.php';
+
 // reCAPTCHA namespace
 use ReCaptcha\ReCaptcha;
 
@@ -48,7 +49,6 @@ if ( isset( $_POST['g-recaptcha-response'] ) ) {
 
 		// Output the result
 		echo $content;
-
 	} else {
 		echo '{"Status":"failed"}';
 	}
