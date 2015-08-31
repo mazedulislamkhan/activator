@@ -162,8 +162,10 @@
 |--------------------------------------------------------------------------
 */
 #activator {
-    display : block;
-    margin  : auto;
+    display       : block;
+    margin-left   : auto;
+    margin-right  : auto;
+    margin-bottom : 50px;
 }
 
 .SerialKey-Group,
@@ -181,18 +183,15 @@
 
 label[for="SerialKey"],
 label[for="ActivateMachineCode"] {
-    width              : 22%;
+    width              : 28%;
     background-color   : #a0ce4e;
     color              : white;
     border-radius      : 2px;
-    border-color       : white;
     padding            : 13px 29px;
     font-size          : 14px;
     -webkit-appearance : none;
     font-family        : 'PT Sans', Arial, Helvetica, sans-serif;
     font-weight        : 700;
-    border-width       : 0;
-    border-style       : solid;
     display            : inline-block;
     position           : relative;
     outline            : 0;
@@ -201,9 +200,6 @@ label[for="ActivateMachineCode"] {
     text-align         : center;
     text-transform     : uppercase;
     cursor             : pointer;
-    -webkit-box-sizing : content-box;
-    -moz-box-sizing    : content-box;
-    box-sizing         : content-box;
     vertical-align     : middle;
 }
 
@@ -222,6 +218,11 @@ input[name="ActivateMachineCode"] {
     float : left;
 }
 
+.verify-recaptcha {
+    display: none;
+    width : 98%;
+}
+
 .submit {
     width   : 65%;
     float   : right;
@@ -235,14 +236,11 @@ input[name="ActivateMachineCode"] {
     background-color   : #a0ce4e;
     color              : white;
     border-radius      : 2px;
-    border-color       : white;
     padding            : 13px 29px;
     font-size          : 14px;
     -webkit-appearance : none;
     font-family        : 'PT Sans', Arial, Helvetica, sans-serif;
     font-weight        : 700;
-    border-width       : 0;
-    border-style       : solid;
     display            : inline-block;
     position           : relative;
     outline            : 0;
@@ -252,4 +250,116 @@ input[name="ActivateMachineCode"] {
     text-transform     : uppercase;
     cursor             : pointer;
     vertical-align     : middle;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Activation code
+|--------------------------------------------------------------------------
+*/
+.activation-code {
+    display : none;
+}
+
+.status {
+    text-align: center;
+}
+
+.activated-license-code pre {
+    word-wrap        : break-word;
+    background-color : #a0ce4e;
+    padding          : 15px;
+    color : black;
+}
+
+.different-computer-id {
+    text-align: center;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+@media only screen and (max-width: 1170px) and (min-width: 860px) {
+    .g-recaptcha {
+        transform: scale(0.77);
+        transform-origin: 0;
+        -webkit-transform: scale(0.77);
+        transform: scale(0.77);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+
+    #rc-imageselect {
+        transform: scale(0.77);
+        transform-origin: 0;
+        -webkit-transform: scale(0.77);
+        transform: scale(0.77);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+
+    .verify-recaptcha {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 859px) and (min-width: 630px) {
+    .g-recaptcha {
+        transform: scale(0.60);
+        transform-origin: 0;
+        -webkit-transform: scale(0.60);
+        transform: scale(0.60);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+
+    #rc-imageselect {
+        transform: scale(0.77);
+        transform-origin: 0;
+        -webkit-transform: scale(0.77);
+        transform: scale(0.77);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+
+    .verify-recaptcha {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (max-width: 629px) {
+    label[for="SerialKey"],
+    label[for="ActivateMachineCode"] {
+        width: 100%;
+        float: none;
+    }
+
+    input[name="SerialKey"],
+    input[name="ActivateMachineCode"] {
+        width: 100% !important;
+        float: none;
+    }
+
+    #pre-loader {
+        width: 100%
+    }
+
+    .Google-reCAPTCHA {
+        width: 100%;
+        float: none;
+        margin-bottom: 15px;
+    }
+
+    .verify-recaptcha {
+        width: 100% !important;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .submit {
+        width: 100%;
+        float: none;
+    }
 }
