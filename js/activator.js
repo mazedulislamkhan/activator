@@ -96,6 +96,7 @@ jQuery(document).ready(function () {
                     jQuery('.activation-code').show();
                     jQuery('.activation-code .status').text('Already activated: Copy the below activation code and activate your copy of LT Auditor+');
                     jQuery('.activation-code .activated-license-code pre').html(data.ActivatedLicenseCode);
+                    grecaptcha.reset();
                 }
 
                 /*
@@ -107,12 +108,14 @@ jQuery(document).ready(function () {
                     jQuery('.activation-code').show();
                     jQuery('.activation-code .status').text('License cannot be activated!');
                     jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Already activated using different computer ID.</h3><h3 class="different-computer-id">Please contact Blue Lance to get another serial key.</h3>');
+                    grecaptcha.reset();
                 }
 
                 else if(data.Status == 'Error : Invalid Serial Key') {
                     jQuery('.activation-code').show();
                     jQuery('.activation-code .status').text('License cannot be activated!');
                     jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Invalid Serial Key.</h3>');
+                    grecaptcha.reset();
                 }
 
                 /*
@@ -124,6 +127,7 @@ jQuery(document).ready(function () {
                     jQuery('.activation-code').show();
                     jQuery('.activation-code .status').text('Copy the below activation code and activate your copy of LT Auditor+');
                     jQuery('.activation-code .activated-license-code pre').html(data.ActivatedLicenseCode);
+                    grecaptcha.reset();
                 }
             },
 
