@@ -41,7 +41,7 @@ function activator_shortcode() {
 		<div class="Google-reCAPTCHA">
 			<div class="g-recaptcha" data-sitekey="$siteKey"></div>
 			<script src="https://www.google.com/recaptcha/api.js?hl=$lang"></script>
-			<div class="verify-recaptcha alert alert-warning">Verify if you're a human.</div>
+			<div class="verify-recaptcha alert alert-warning">Please, verify the captcha.</div>
 		</div>
 
 		<div class="submit">
