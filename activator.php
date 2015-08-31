@@ -41,6 +41,7 @@ function activator_shortcode() {
 		<div class="Google-reCAPTCHA">
 			<div class="g-recaptcha" data-sitekey="$siteKey"></div>
 			<script src="https://www.google.com/recaptcha/api.js?hl=$lang"></script>
+			<div class="verify-recaptcha alert alert-warning">Verify if you're a human.</div>
 		</div>
 
 		<div class="submit">
@@ -53,7 +54,10 @@ function activator_shortcode() {
 	</fieldset>
 </form>
 <div class="activation-code">
-	
+	<h2 class="status"></h2>
+	<div class="activated-license-code">
+		<pre></pre>
+	</div>
 </div>
 FORM;
 
