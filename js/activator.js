@@ -101,22 +101,27 @@ jQuery(document).ready(function () {
                 }
 
                 /*
-                 |--------------------------------------------------------------------------
-                 | Already activated - Different Computer ID
-                 |--------------------------------------------------------------------------
-                 */
+                |--------------------------------------------------------------------------
+                | Already activated - Different Computer ID
+                |--------------------------------------------------------------------------
+                */
                 else if (data.Status == 'Error : Already activated - Different Computer ID') {
                     jQuery('.activation-code').show();
-                    jQuery('.activation-code .status').text('License cannot be activated!');
-                    jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Already activated using different computer ID.</h3><h3 class="different-computer-id">Please contact Blue Lance to get another serial key.</h3>');
+                    jQuery('.activation-code .status').text('License cannot be activated !!!').addClass('red');
+                    jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Already activated using different computer ID.</h3><h3 class="different-computer-id">Please contact Blue Lance to request a new serial key.</h3>');
                     grecaptcha.reset();
                     jQuery('.Google-reCAPTCHA .verify-recaptcha').hide();
                 }
 
+                /*
+                |--------------------------------------------------------------------------
+                | Error: Invalid Serial Key
+                |--------------------------------------------------------------------------
+                */
                 else if(data.Status == 'Error : Invalid Serial Key') {
                     jQuery('.activation-code').show();
-                    jQuery('.activation-code .status').text('License cannot be activated!');
-                    jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Invalid Serial Key.</h3>');
+                    jQuery('.activation-code .status').text('License cannot be activated!').addClass('red');
+                    jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Please contact Blue Lance to request a new serial Key.</h3>');
                     grecaptcha.reset();
                     jQuery('.Google-reCAPTCHA .verify-recaptcha').hide();
                 }
@@ -137,8 +142,8 @@ jQuery(document).ready(function () {
 
             error: function () {
                 jQuery('.activation-code').show();
-                jQuery('.activation-code .status').text('Internal Error Activating License');
-                jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Please contact Blue Lance to get another serial key.</h3>');
+                jQuery('.activation-code .status').text('Internal Error Activating License').addClass('red');
+                jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Please contact Blue Lance to request a new serial key.</h3>');
             }
         });
 
