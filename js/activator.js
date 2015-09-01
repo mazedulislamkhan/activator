@@ -94,35 +94,107 @@ jQuery(document).ready(function () {
                  */
                 else if (data.Status == 'Already activated - Same Computer ID') {
                     jQuery('.activation-code').show();
+                    jQuery('.activation-code .status').text('License cannot be activated!').removeClass('red');
                     jQuery('.activation-code .status').text('Already activated: Copy the below activation code and activate your copy of LT Auditor+');
                     jQuery('.activation-code .activated-license-code pre').html(data.ActivatedLicenseCode);
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Show copy to clipboard
+                     |--------------------------------------------------------------------------
+                     */
+                    jQuery('.activation-code #copy-button').show();
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Change copy button label to copy to clipboard
+                     |--------------------------------------------------------------------------
+                     */
+                    jQuery('#copy-button').text('Copy to Clipboard');
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Copy to the clipboard
+                     |--------------------------------------------------------------------------
+                     */
+                    jQuery('.activation-code #copy-button').attr('data-clipboard-text', data.ActivatedLicenseCode);
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Refresh reCAPTCHA
+                     |--------------------------------------------------------------------------
+                     */
                     grecaptcha.reset();
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Hide reCAPTCHA warning
+                     |--------------------------------------------------------------------------
+                     */
                     jQuery('.Google-reCAPTCHA .verify-recaptcha').hide();
                 }
 
                 /*
-                |--------------------------------------------------------------------------
-                | Already activated - Different Computer ID
-                |--------------------------------------------------------------------------
-                */
+                 |--------------------------------------------------------------------------
+                 | Already activated - Different Computer ID
+                 |--------------------------------------------------------------------------
+                 */
                 else if (data.Status == 'Error : Already activated - Different Computer ID') {
                     jQuery('.activation-code').show();
                     jQuery('.activation-code .status').text('License cannot be activated !!!').addClass('red');
                     jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Already activated using different computer ID.</h3><h3 class="different-computer-id">Please contact Blue Lance to request a new serial key.</h3>');
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Hide copy to clipboard
+                     |--------------------------------------------------------------------------
+                     */
+                    jQuery('.activation-code #copy-button').hide();
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Refresh reCAPTCHA
+                     |--------------------------------------------------------------------------
+                     */
                     grecaptcha.reset();
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Hide reCAPTCHA warning
+                     |--------------------------------------------------------------------------
+                     */
                     jQuery('.Google-reCAPTCHA .verify-recaptcha').hide();
                 }
 
                 /*
-                |--------------------------------------------------------------------------
-                | Error: Invalid Serial Key
-                |--------------------------------------------------------------------------
-                */
-                else if(data.Status == 'Error : Invalid Serial Key') {
+                 |--------------------------------------------------------------------------
+                 | Error: Invalid Serial Key
+                 |--------------------------------------------------------------------------
+                 */
+                else if (data.Status == 'Error : Invalid Serial Key') {
                     jQuery('.activation-code').show();
                     jQuery('.activation-code .status').text('License cannot be activated!').addClass('red');
                     jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Please contact Blue Lance to request a new serial Key.</h3>');
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Hide copy to clipboard
+                     |--------------------------------------------------------------------------
+                     */
+                    jQuery('.activation-code #copy-button').hide();
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Refresh reCAPTCHA
+                     |--------------------------------------------------------------------------
+                     */
                     grecaptcha.reset();
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Hide reCAPTCHA warning
+                     |--------------------------------------------------------------------------
+                     */
                     jQuery('.Google-reCAPTCHA .verify-recaptcha').hide();
                 }
 
@@ -133,9 +205,43 @@ jQuery(document).ready(function () {
                  */
                 else {
                     jQuery('.activation-code').show();
+                    jQuery('.activation-code .status').text('License cannot be activated!').removeClass('red');
                     jQuery('.activation-code .status').text('Copy the below activation code and activate your copy of LT Auditor+');
                     jQuery('.activation-code .activated-license-code pre').html(data.ActivatedLicenseCode);
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Show copy to clipboard
+                     |--------------------------------------------------------------------------
+                     */
+                    jQuery('.activation-code #copy-button').show();
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Change copy button label to copy to clipboard
+                     |--------------------------------------------------------------------------
+                     */
+                    jQuery('#copy-button').text('Copy to Clipboard');
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Copy to the clipboard
+                     |--------------------------------------------------------------------------
+                     */
+                    jQuery('.activation-code #copy-button').attr('data-clipboard-text', data.ActivatedLicenseCode);
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Refresh reCAPTCHA
+                     |--------------------------------------------------------------------------
+                     */
                     grecaptcha.reset();
+
+                    /*
+                     |--------------------------------------------------------------------------
+                     | Hide reCAPTCHA warning
+                     |--------------------------------------------------------------------------
+                     */
                     jQuery('.Google-reCAPTCHA .verify-recaptcha').hide();
                 }
             },
@@ -144,6 +250,13 @@ jQuery(document).ready(function () {
                 jQuery('.activation-code').show();
                 jQuery('.activation-code .status').text('Internal Error Activating License').addClass('red');
                 jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Please contact Blue Lance to request a new serial key.</h3>');
+
+                /*
+                 |--------------------------------------------------------------------------
+                 | Hide copy to clipboard
+                 |--------------------------------------------------------------------------
+                 */
+                jQuery('.activation-code #copy-button').hide();
             }
         });
 
