@@ -284,6 +284,36 @@ input[name="ActivateMachineCode"] {
 
 /*
 |--------------------------------------------------------------------------
+| Copy button
+|--------------------------------------------------------------------------
+*/
+#copy-button {
+    width              : 100%;
+    max-width: 250px;
+    float : right;
+    display            : block;
+    margin             : auto;
+    background-color   : #a0ce4e;
+    color              : white;
+    border-radius      : 2px;
+    padding            : 13px 29px;
+    font-size          : 14px;
+    -webkit-appearance : none;
+    font-family        : 'PT Sans', Arial, Helvetica, sans-serif;
+    font-weight        : 700;
+    display            : inline-block;
+    position           : relative;
+    outline            : 0;
+    zoom               : 1;
+    border             : 1px solid rgba(0, 0, 0, 0);
+    text-align         : center;
+    text-transform     : uppercase;
+    cursor             : pointer;
+    vertical-align     : middle;
+}
+
+/*
+|--------------------------------------------------------------------------
 | Responsive
 |--------------------------------------------------------------------------
 */
@@ -367,5 +397,10 @@ input[name="ActivateMachineCode"] {
     .submit {
         width: 100%;
         float: none;
+    }
+
+    #copy-button {
+        max-width: 100%;
+        float : none;
     }
 }
