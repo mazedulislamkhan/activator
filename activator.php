@@ -4,7 +4,7 @@
 Plugin Name: Activator
 Plugin URI: https://github.com/mazedulislamkhan/activator
 Description: A simple WordPress plugin which generate activation key through Bluelance API. Some of this plugin style based on specific to Avada theme.
-Version: 1.1
+Version: 1.2
 Author: Md Mazedul Islam Khan
 Author URI: https://github.com/mazedulislamkhan
 License: GPL2
@@ -58,6 +58,7 @@ function activator_shortcode() {
 	<div class="activated-license-code">
 		<pre></pre>
 	</div>
+	<button id="copy-button" title="Click to copy the license code.">Copy to Clipboard</button>
 </div>
 FORM;
 
@@ -76,6 +77,18 @@ function activator_javascript() {
 }
 
 add_action( 'wp_enqueue_scripts', 'activator_javascript' );
+
+/*
+|--------------------------------------------------------------------------
+| Zero clipboard Javascript
+|--------------------------------------------------------------------------
+*/
+function activator_clipboard() {
+	wp_enqueue_script( 'clipboard', plugins_url( 'js/ZeroClipboard.js', __FILE__ ), '1.0', true );
+	wp_enqueue_script( 'clipboard-main', plugins_url( 'js/copy.js', __FILE__ ), '1.0', true );
+}
+
+add_action( 'wp_enqueue_scripts', 'activator_clipboard' );
 
 /*
 |--------------------------------------------------------------------------
