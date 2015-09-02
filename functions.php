@@ -27,7 +27,7 @@ if ( isset( $_POST['g-recaptcha-response'] ) ) {
 	if ( $response->isSuccess() ) {
 
 		// API path
-		$url = 'http://ec2-52-8-255-156.us-west-1.compute.amazonaws.com/licenseapi/api/License/Activate';
+		$url = 'http://licenseapi.bluelance.com/LicenseApi/api/License/Activate';
 
 		// Form submitted data
 		$data = 'SerialKey=' . $_POST['SerialKey'] . '&' . 'ActivateMachineCode=' . $_POST['ActivateMachineCode'];
