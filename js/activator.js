@@ -94,8 +94,7 @@ jQuery(document).ready(function () {
                  */
                 else if (data.Status == 'Already activated - Same Computer ID') {
                     jQuery('.activation-code').show();
-                    jQuery('.activation-code .status').text('License cannot be activated!').removeClass('red');
-                    jQuery('.activation-code .status').text('Already activated: Copy the below activation code and activate your copy of LT Auditor+');
+                    jQuery('.activation-code .status').text('Already activated: Copy activation code to the LT Auditor+ license window and apply to activate.').removeClass('red');
                     jQuery('.activation-code .activated-license-code pre').html(data.ActivatedLicenseCode);
 
                     /*
@@ -142,7 +141,7 @@ jQuery(document).ready(function () {
                 else if (data.Status == 'Error : Already activated - Different Computer ID') {
                     jQuery('.activation-code').show();
                     jQuery('.activation-code .status').text('License cannot be activated !!!').addClass('red');
-                    jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Already activated using different computer ID.</h3><h3 class="different-computer-id">Please contact Blue Lance to request a new serial key.</h3>');
+                    jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">This key has already been activated.</h3><h3 class="different-computer-id">Please contact Blue Lance to request a new license key.</h3>');
 
                     /*
                      |--------------------------------------------------------------------------
@@ -173,8 +172,8 @@ jQuery(document).ready(function () {
                  */
                 else if (data.Status == 'Error : Invalid Serial Key') {
                     jQuery('.activation-code').show();
-                    jQuery('.activation-code .status').text('License cannot be activated!').addClass('red');
-                    jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Please contact Blue Lance to request a new serial Key.</h3>');
+                    jQuery('.activation-code .status').text('License cannot be activated').addClass('red');
+                    jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Please contact Blue Lance to request a new license Key.</h3>');
 
                     /*
                      |--------------------------------------------------------------------------
@@ -205,8 +204,7 @@ jQuery(document).ready(function () {
                  */
                 else {
                     jQuery('.activation-code').show();
-                    jQuery('.activation-code .status').text('License cannot be activated!').removeClass('red');
-                    jQuery('.activation-code .status').text('Copy the below activation code and activate your copy of LT Auditor+');
+                    jQuery('.activation-code .status').text('Copy activation code to the LT Auditor+ license window and apply to activate.').removeClass('red');
                     jQuery('.activation-code .activated-license-code pre').html(data.ActivatedLicenseCode);
 
                     /*
@@ -249,7 +247,7 @@ jQuery(document).ready(function () {
             error: function () {
                 jQuery('.activation-code').show();
                 jQuery('.activation-code .status').text('Internal Error Activating License').addClass('red');
-                jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Please contact Blue Lance to request a new serial key.</h3>');
+                jQuery('.activation-code .activated-license-code pre').html('<h3 class="different-computer-id">Please contact Blue Lance to request a new license key.</h3>');
 
                 /*
                  |--------------------------------------------------------------------------
