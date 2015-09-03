@@ -4,7 +4,7 @@
 Plugin Name: Activator
 Plugin URI: https://github.com/mazedulislamkhan/activator
 Description: A simple WordPress plugin which generate activation key through Bluelance API. Some of this plugin style based on specific to Avada theme.
-Version: 1.3
+Version: 1.4
 Author: Md Mazedul Islam Khan
 Author URI: https://github.com/mazedulislamkhan
 License: GPL2
@@ -25,17 +25,27 @@ function activator_shortcode() {
 	global $siteKey;
 	global $lang;
 
+	/*
+	|--------------------------------------------------------------------------
+	| URL Parameter { License Key, Computer ID }
+	|--------------------------------------------------------------------------
+	*/
+	if(isset($_GET['SerialKey']) && isset($_GET['ActivateMachineCode'])) {
+		$SerialKey = 'value="' . $_GET['SerialKey'] . '"';
+		$ActivateMachineCode = 'value="' . $_GET['ActivateMachineCode'] . '"';
+	}
+
 	$form = <<<FORM
 <form method="POST" id="activator">
 	<fieldset>
 		<div class="SerialKey-Group">
 			<label for="SerialKey">License Key</label>
-			<input type="text" id="SerialKey" name="SerialKey" placeholder="Enter License Key" required>
+			<input type="text" id="SerialKey" name="SerialKey" placeholder="Enter License Key" $SerialKey required>
 		</div>
 
 		<div class="ActivateMachineCode-Group">
 			<label for="ActivateMachineCode">Computer ID</label>
-			<input type="text" id="ActivateMachineCode" name="ActivateMachineCode" placeholder="Enter Computer ID" required>
+			<input type="text" id="ActivateMachineCode" name="ActivateMachineCode" placeholder="Enter Computer ID" $ActivateMachineCode required>
 		</div>
 
 		<div class="Google-reCAPTCHA">
