@@ -12,7 +12,7 @@ require 'vendor/autoload.php';
 use ReCaptcha\ReCaptcha;
 
 // reCAPTCHA key
-$secret = '6Lf5EAwTAAAAAHmu137AwfsRQ7IZfZ2nfiU6M7Sy';
+$secret = '6Le7TAwTAAAAAN95mv6JS9ycK6qz0LPuYjrpgaDC';
 
 // Check the reCAPTCHA if is set
 if ( isset( $_POST['g-recaptcha-response'] ) ) {
