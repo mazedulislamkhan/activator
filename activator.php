@@ -4,7 +4,7 @@
 Plugin Name: Activator
 Plugin URI: https://github.com/mazedulislamkhan/activator
 Description: A simple WordPress plugin which generate activation key through Bluelance API. Some of this plugin style based on specific to Avada theme.
-Version: 1.2
+Version: 1.3
 Author: Md Mazedul Islam Khan
 Author URI: https://github.com/mazedulislamkhan
 License: GPL2
