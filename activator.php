@@ -13,7 +13,7 @@ License: GPL2
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
 // reCAPTCHA
-$siteKey = '6Lf5EAwTAAAAAOb1bLUPAfi5Mp7hqlg3AF7kr9Wy';
+$siteKey = '6Le7TAwTAAAAAM5JSqhnXBP2gVVHY49fW6KIKcWX';
 $lang    = 'en';
 
 /*
@@ -29,8 +29,8 @@ function activator_shortcode() {
 <form method="POST" id="activator">
 	<fieldset>
 		<div class="SerialKey-Group">
-			<label for="SerialKey">Serial Key</label>
-			<input type="text" id="SerialKey" name="SerialKey" placeholder="Enter Serial Key" required>
+			<label for="SerialKey">License Key</label>
+			<input type="text" id="SerialKey" name="SerialKey" placeholder="Enter License Key" required>
 		</div>
 
 		<div class="ActivateMachineCode-Group">
@@ -41,11 +41,11 @@ function activator_shortcode() {
 		<div class="Google-reCAPTCHA">
 			<div class="g-recaptcha" data-sitekey="$siteKey"></div>
 			<script src="https://www.google.com/recaptcha/api.js?hl=$lang"></script>
-			<div class="verify-recaptcha alert alert-warning">Please, verify the captcha.</div>
+			<div class="verify-recaptcha alert alert-warning">Please verify the captcha if you need to activate again</div>
 		</div>
 
 		<div class="submit">
-			<button type="submit">Activate</button>
+			<button type="submit">Generate Activation Code</button>
 		</div>
 
 		<div id="pre-loader">
@@ -58,7 +58,7 @@ function activator_shortcode() {
 	<div class="activated-license-code">
 		<pre></pre>
 	</div>
-	<button id="copy-button" title="Click to copy the license code.">Copy to Clipboard</button>
+	<button id="copy-button" title="Click to copy the activation code.">Copy to Clipboard</button>
 </div>
 FORM;
 
